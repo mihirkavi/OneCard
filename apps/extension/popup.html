@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneCard</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-text">OC</span>
+        <span class="logo-name">OneCard</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="current-site" class="current-site">
+        <span class="site-label">Current Site:</span>
+        <span class="site-name" id="site-name">Detecting...</span>
+      </div>
+
+      <div id="recommendation" class="recommendation hidden">
+        <div class="rec-header">Best Card for This Site</div>
+        <div class="card-preview" id="card-preview">
+          <div class="card-name" id="card-name">Loading...</div>
+          <div class="card-issuer" id="card-issuer"></div>
+        </div>
+        <div class="reward-info">
+          <div class="reward-rate" id="reward-rate">--</div>
+          <div class="reward-type" id="reward-type">rewards</div>
+        </div>
+      </div>
+
+      <div id="no-recommendation" class="no-rec">
+        <div class="no-rec-icon">💳</div>
+        <div class="no-rec-text">No specific recommendation for this site</div>
+        <div class="no-rec-hint">Your default card earns 1-2% on everything</div>
+      </div>
+
+      <div class="quick-lookup">
+        <input type="text" id="merchant-input" placeholder="Search merchant or category..." class="search-input">
+        <button id="search-btn" class="search-btn">Find Best Card</button>
+      </div>
+
+      <div id="search-result" class="search-result hidden"></div>
+    </main>
+
+    <footer class="footer">
+      <a href="#" id="open-dashboard" class="footer-link">Open Dashboard</a>
+      <a href="#" id="settings-link" class="footer-link">Settings</a>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
