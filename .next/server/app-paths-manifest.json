@@ -1,1 +1,9 @@
-{}
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/cards/page": "app/cards/page.js",
+  "/api/recommend/route": "app/api/recommend/route.js",
+  "/categories/page": "app/categories/page.js",
+  "/page": "app/page.js",
+  "/recommend/page": "app/recommend/page.js",
+  "/dashboard/page": "app/dashboard/page.js"
+}
