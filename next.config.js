@@ -6,8 +6,8 @@ const isGithubPages = process.env.GITHUB_PAGES === 'true';
 const nextConfig = {
   ...(isGithubPages ? {
     output: 'export',
-    basePath: '/onecard',
-    assetPrefix: '/onecard/',
+    basePath: '/OneCard',
+    assetPrefix: '/OneCard/',
     images: { unoptimized: true },
     trailingSlash: true,
   } : {
