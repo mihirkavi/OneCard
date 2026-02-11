@@ -1,41 +1,8 @@
 import Link from 'next/link';
-import { db } from '@/lib/db';
-import { categories, rewardRules, creditCards, cardIssuers } from '@/lib/db/schema';
-import { eq, desc } from 'drizzle-orm';
+import { getCategoriesWithBestCards } from '@/lib/static-data';
 
-async function getCategoriesWithBestCards() {
-  try {
-    const cats = await db.select().from(categories);
-    
-    const result = await Promise.all(cats.map(async (cat) => {
-      const rules = await db.select({
-        cardName: creditCards.name,
-        issuerName: cardIssuers.name,
-        rate: rewardRules.rewardRate,
-        type: rewardRules.rewardType,
-        color: creditCards.color,
-      })
-      .from(rewardRules)
-      .leftJoin(creditCards, eq(rewardRules.cardId, creditCards.id))
-      .leftJoin(cardIssuers, eq(creditCards.issuerId, cardIssuers.id))
-      .where(eq(rewardRules.categoryId, cat.id))
-      .orderBy(desc(rewardRules.rewardRate))
-      .limit(3);
-      
-      return {
-        ...cat,
-        topCards: rules,
-      };
-    }));
-    
-    return result;
-  } catch {
-    return [];
-  }
-}
-
-export default async function CategoriesPage() {
-  const categoriesData = await getCategoriesWithBestCards();
+export default function CategoriesPage() {
+  const categoriesData = getCategoriesWithBestCards();
 
   return (
     <div className="min-h-screen">

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { getRecommendation } from './actions';
+import { getRecommendation } from '@/lib/static-data';
 
 type Category = {
   id: string;
@@ -31,7 +31,7 @@ export function RecommendForm({ categories }: { categories: Category[] }) {
     setLoading(true);
     
     try {
-      const result = await getRecommendation({ merchant, categoryId: category, amount: parseFloat(amount) });
+      const result = getRecommendation({ merchant, categoryId: category, amount: parseFloat(amount) });
       if (result.bestCard) {
         setRecommendation(result.bestCard);
         setAllOptions(result.allOptions || []);

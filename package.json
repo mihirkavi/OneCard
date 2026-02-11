@@ -8,7 +8,8 @@
     "start": "next start -p 5000 -H 0.0.0.0",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
-    "db:seed": "tsx scripts/seed.ts"
+    "db:seed": "tsx scripts/seed.ts",
+    "build:github": "bash scripts/build-github.sh"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.0",

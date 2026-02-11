@@ -1,20 +1,8 @@
 import Link from 'next/link';
-import { db } from '@/lib/db';
-import { creditCards, categories, rewardRules, cardIssuers } from '@/lib/db/schema';
-import { eq } from 'drizzle-orm';
+import { getStats } from '@/lib/static-data';
 
-async function getStats() {
-  try {
-    const cards = await db.select().from(creditCards);
-    const cats = await db.select().from(categories);
-    return { cardCount: cards.length, categoryCount: cats.length };
-  } catch {
-    return { cardCount: 0, categoryCount: 0 };
-  }
-}
-
-export default async function Dashboard() {
-  const stats = await getStats();
+export default function Dashboard() {
+  const stats = getStats();
 
   return (
     <div className="min-h-screen">

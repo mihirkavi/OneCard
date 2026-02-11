@@ -1,37 +1,10 @@
 import Link from 'next/link';
 import { RecommendForm } from './RecommendForm';
-import { db } from '@/lib/db';
-import { categories, creditCards, rewardRules, cardIssuers } from '@/lib/db/schema';
-import { eq, desc } from 'drizzle-orm';
+import { staticCategories, getTopCards } from '@/lib/static-data';
 
-async function getCategories() {
-  try {
-    return await db.select().from(categories);
-  } catch {
-    return [];
-  }
-}
-
-async function getTopCards() {
-  try {
-    const cards = await db.select({
-      id: creditCards.id,
-      name: creditCards.name,
-      issuerName: cardIssuers.name,
-      color: creditCards.color,
-    })
-    .from(creditCards)
-    .leftJoin(cardIssuers, eq(creditCards.issuerId, cardIssuers.id))
-    .limit(6);
-    return cards;
-  } catch {
-    return [];
-  }
-}
-
-export default async function RecommendPage() {
-  const cats = await getCategories();
-  const topCards = await getTopCards();
+export default function RecommendPage() {
+  const cats = staticCategories;
+  const topCards = getTopCards();
 
   return (
     <div className="min-h-screen">

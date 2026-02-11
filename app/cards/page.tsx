@@ -1,45 +1,8 @@
 import Link from 'next/link';
-import { db } from '@/lib/db';
-import { creditCards, cardIssuers, rewardRules, categories } from '@/lib/db/schema';
-import { eq } from 'drizzle-orm';
+import { getCards, getCardRewards } from '@/lib/static-data';
 
-async function getCards() {
-  try {
-    const cards = await db.select({
-      id: creditCards.id,
-      name: creditCards.name,
-      network: creditCards.network,
-      annualFee: creditCards.annualFee,
-      color: creditCards.color,
-      issuerName: cardIssuers.name,
-    })
-    .from(creditCards)
-    .leftJoin(cardIssuers, eq(creditCards.issuerId, cardIssuers.id));
-    
-    return cards;
-  } catch {
-    return [];
-  }
-}
-
-async function getCardRewards(cardId: string) {
-  try {
-    const rules = await db.select({
-      category: categories.name,
-      rate: rewardRules.rewardRate,
-      type: rewardRules.rewardType,
-    })
-    .from(rewardRules)
-    .leftJoin(categories, eq(rewardRules.categoryId, categories.id))
-    .where(eq(rewardRules.cardId, cardId));
-    return rules;
-  } catch {
-    return [];
-  }
-}
-
-export default async function CardsPage() {
-  const cards = await getCards();
+export default function CardsPage() {
+  const cards = getCards();
 
   return (
     <div className="min-h-screen">
@@ -67,18 +30,10 @@ export default async function CardsPage() {
           <div className="text-gray-400">{cards.length} cards available</div>
         </div>
 
-        {cards.length === 0 ? (
-          <div className="glass rounded-2xl p-12 text-center">
-            <div className="text-6xl mb-4">💳</div>
-            <h2 className="text-2xl font-semibold mb-2">No Cards Yet</h2>
-            <p className="text-gray-400 mb-6">Run the database seed to populate credit cards with reward data.</p>
-            <code className="block bg-black/30 p-4 rounded-lg text-sm text-left max-w-md mx-auto">
-              npm run db:push && npm run db:seed
-            </code>
-          </div>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cards.map((card) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cards.map((card) => {
+            const rewards = getCardRewards(card.id);
+            return (
               <div key={card.id} className="glass rounded-2xl overflow-hidden">
                 <div 
                   className="h-40 flex items-end p-6"
@@ -98,14 +53,24 @@ export default async function CardsPage() {
                     <span className="text-gray-400">Annual Fee</span>
                     <span className="font-semibold">${card.annualFee || 0}</span>
                   </div>
+                  {rewards.length > 0 && (
+                    <div className="mb-4 space-y-1">
+                      {rewards.map((r, i) => (
+                        <div key={i} className="flex justify-between text-sm">
+                          <span className="text-gray-400">{r.category}</span>
+                          <span className="text-onecard-purple font-semibold">{r.rate}{r.type === 'cashback' ? '%' : 'x'} {r.type}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   <button className="w-full py-3 rounded-xl bg-onecard-purple/20 text-onecard-purple font-semibold hover:bg-onecard-purple/30 transition">
                     Add to My Wallet
                   </button>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+            );
+          })}
+        </div>
       </main>
     </div>
   );

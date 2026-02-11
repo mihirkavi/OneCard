@@ -63,6 +63,17 @@ Located in `apps/extension/`. To install:
 3. Click "Load unpacked"
 4. Select the apps/extension folder
 
+## GitHub Pages Deployment
+The app can be built as a static site for GitHub Pages:
+```bash
+npm run build:github   # Build static export to out/ folder
+```
+- Uses embedded static data (lib/static-data.ts) instead of database
+- Configured with basePath `/onecard` for mihirkavi.github.io/onecard
+- Recommendation engine works client-side with the same card data
+- Deploy the `out/` folder contents to the GitHub Pages repo
+
 ## Recent Changes
+- February 2026: Added GitHub Pages static export support with embedded data
 - January 2026: Built full web app, Chrome extension, and mobile app structure
 - Database seeded with 12 popular credit cards and 24 reward rules
