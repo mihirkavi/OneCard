@@ -1,14 +1,5 @@
 {
-  "node": {
-    "174a73ee8a52f5e28443576b5d6c18e2aded3824": {
-      "workers": {
-        "app/recommend/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Frunner%2Fworkspace%2Fapp%2Frecommend%2Factions.ts%22%2C%5B%22getRecommendation%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/recommend/page": "action-browser"
-      }
-    }
-  },
+  "node": {},
   "edge": {},
-  "encryptionKey": "sL3sE+eN9G4o0+9DIiTLzUM2uDNyY96uRQ/TQkjMXBo="
+  "encryptionKey": "uUicPLUpisk6Ow9kSyVrBsIb3JfAn0d/H/r0G5dy2Ig="
 }
