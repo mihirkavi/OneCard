@@ -2,6 +2,8 @@
 
 OneCard is a credit-card rewards optimizer that recommends which card to use for a purchase based on merchant, spending category, and reward rate.
 
+[View the website prototype](https://mihirkavi.github.io/OneCard/)
+
 ## Features
 
 - browse cards, issuers, categories, and reward structures
@@ -27,3 +29,7 @@ npm run build
 ```
 
 The repository also preserves product specifications, financial models, feasibility work, and historical planning materials.
+
+## License
+
+No license file is included in this repository. This README grants no additional reuse or redistribution permissions; contact the repository owner about permitted use.
