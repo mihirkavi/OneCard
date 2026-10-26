@@ -21,10 +21,10 @@
 </p>
 
 <p align="center">
-  <img alt="Status: prototype with demo data" src="https://img.shields.io/badge/status-prototype%20%C2%B7%20demo%20data-6b6b6b?style=flat-square">
-  <img alt="Next.js 14, React 18, TypeScript, Tailwind CSS" src="https://img.shields.io/badge/Next.js%2014%20%C2%B7%20TypeScript%20%C2%B7%20Tailwind-111111?style=flat-square">
-  <a href="https://github.com/mihirkavi/OneCard/actions/workflows/deploy.yml"><img alt="Deploy to GitHub Pages" src="https://img.shields.io/github/actions/workflow/status/mihirkavi/OneCard/deploy.yml?branch=main&style=flat-square&label=pages&color=111111"></a>
-  <img alt="License: none" src="https://img.shields.io/badge/license-none-6b6b6b?style=flat-square">
+  <img alt="Status: prototype with demo data" src="https://img.shields.io/badge/status-prototype%20%C2%B7%20demo%20data-8b5cf6?style=flat-square">
+  <img alt="Next.js 14, React 18, TypeScript, Tailwind CSS" src="https://img.shields.io/badge/Next.js%2014%20%C2%B7%20TypeScript%20%C2%B7%20Tailwind-1a1a2e?style=flat-square">
+  <a href="https://github.com/mihirkavi/OneCard/actions/workflows/deploy.yml"><img alt="Deploy to GitHub Pages" src="https://img.shields.io/github/actions/workflow/status/mihirkavi/OneCard/deploy.yml?branch=main&style=flat-square&label=pages&color=4a90d9"></a>
+  <img alt="License: none" src="https://img.shields.io/badge/license-none-9ca3af?style=flat-square">
 </p>
 
 <p align="center">
@@ -40,15 +40,15 @@ Most people carry several credit cards, each with its own bonus categories: 4x a
 <table>
   <tr>
     <td width="33%" valign="top">
-      <h3>🎯 One answer, instantly</h3>
+      <h3>One answer, instantly</h3>
       Type a store or choose a category and get the best card, its reward rate and an estimated reward for the amount.
     </td>
     <td width="33%" valign="top">
-      <h3>🗂️ Every category, mapped</h3>
+      <h3>Every category, mapped</h3>
       Browse 12 popular cards and the top card for each of 10 spending categories, from groceries to streaming.
     </td>
     <td width="33%" valign="top">
-      <h3>🛍️ Wherever you shop</h3>
+      <h3>Wherever you shop</h3>
       A Chrome extension prototype shows a "best card" banner on known shopping sites; an Expo app prototype does the same on mobile.
     </td>
   </tr>
@@ -108,14 +108,14 @@ Every push to `main` rebuilds and deploys the live demo through [`.github/workfl
 
 ## What's in the box
 
-| | Part | Where | Status |
-| --- | --- | --- | --- |
-| 🌐 | **Web app**: home, recommendation form, cards, categories, dashboard | `app/` | ✅ Works with demo data |
-| 🔌 | **Recommendation API**: `GET /api/recommend?merchant=…&category=…&amount=…` | `app/api/recommend` | ✅ Local server only (not in the static Pages build) |
-| 🧩 | **Chrome extension** (Manifest V3): banner with the best card on about 20 known shopping sites | `apps/extension` | 🧪 Prototype |
-| 📱 | **Mobile app** (Expo / React Native): category lookup | `apps/mobile` | 🧪 Prototype |
-| 🗄️ | **Database schema** (Drizzle + PostgreSQL) and seed script | `lib/db`, `scripts/seed.ts` | 🔜 Not wired into the pages |
-| 👛 | **Personal wallet**: save your own cards and get picks only from them | `app/cards` | 🔜 Planned (button is a placeholder) |
+| Part | Where | Status |
+| --- | --- | --- |
+| **Web app**: home, recommendation form, cards, categories, dashboard | `app/` | ✅ Works with demo data |
+| **Recommendation API**: `GET /api/recommend?merchant=…&category=…&amount=…` | `app/api/recommend` | ✅ Local server only (not in the static Pages build) |
+| **Chrome extension** (Manifest V3): banner with the best card on about 20 known shopping sites | `apps/extension` | 🧪 Prototype |
+| **Mobile app** (Expo / React Native): category lookup | `apps/mobile` | 🧪 Prototype |
+| **Database schema** (Drizzle + PostgreSQL) and seed script | `lib/db`, `scripts/seed.ts` | 🔜 Not wired into the pages |
+| **Personal wallet**: save your own cards and get picks only from them | `app/cards` | 🔜 Planned (button is a placeholder) |
 
 <details>
 <summary><strong>Venture materials in this repository</strong></summary>

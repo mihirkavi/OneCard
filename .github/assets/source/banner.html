@@ -1,0 +1,65 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>OneCard banner</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* OneCard identity: the fanned wallet. Colors from tailwind.config.js and the live demo. */
+:root{
+  --bg:#f4f6fd; --ink:#16213e; --muted:#55607a; --rule:rgba(22,33,62,.12); --pill:#ffffff;
+  --blue:#4a90d9; --purple:#8b5cf6; --navy:#1a1a2e; --navy2:#16213e; --glow:rgba(139,92,246,.18);
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#1a1a2e; --ink:#ffffff; --muted:#9ca3af; --rule:rgba(255,255,255,.1); --pill:rgba(255,255,255,.05); --glow:rgba(139,92,246,.30);
+}}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1600px;height:600px;overflow:hidden}
+body{font-family:Manrope,sans-serif;color:var(--ink);position:relative;
+  background:radial-gradient(45% 75% at 78% 50%,var(--glow),transparent 70%),linear-gradient(135deg,var(--bg),var(--bg))}
+@media (prefers-color-scheme: dark){body{background:radial-gradient(45% 75% at 78% 50%,var(--glow),transparent 70%),linear-gradient(135deg,#1a1a2e,#16213e)}}
+.left{position:absolute;left:96px;top:0;bottom:0;width:800px;display:flex;flex-direction:column;justify-content:center}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:36px}
+.oc{font-family:Poppins;font-weight:700;font-size:24px;letter-spacing:-.02em;width:52px;height:52px;border-radius:14px;background:#000;display:flex;align-items:center;justify-content:center;color:#fff}
+.oc span{color:var(--purple)}
+.brand b{font-family:Poppins;font-weight:600;font-size:22px;letter-spacing:.32em}
+h1{font-family:Poppins;font-weight:700;font-size:86px;line-height:1.04;letter-spacing:-.035em}
+h1 em{font-style:normal;background:linear-gradient(90deg,#8b5cf6,#4a90d9);-webkit-background-clip:text;color:transparent}
+p{margin-top:24px;font-size:25px;line-height:1.45;color:var(--muted);max-width:700px;font-weight:500}
+.ask{margin-top:32px;display:flex;align-items:center;gap:12px}
+.field{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:14px;border:1.5px solid var(--rule);background:var(--pill);font-size:20px;font-weight:600;min-width:330px}
+.field i{font-style:normal;color:var(--muted);font-weight:500}
+.arrow{font-size:26px;color:var(--purple);font-weight:700}
+.result{padding:14px 20px;border-radius:14px;background:linear-gradient(135deg,#4a90d9,#8b5cf6);color:#fff;font-size:20px;font-weight:700}
+.tag{position:absolute;left:96px;bottom:34px;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+/* wallet */
+.wallet{position:absolute;right:120px;top:120px;width:520px;height:360px}
+.card{position:absolute;width:440px;height:277px;border-radius:24px;padding:28px 30px;color:#fff;box-shadow:0 30px 60px rgba(10,10,30,.28);
+  display:flex;flex-direction:column;justify-content:space-between;transform-origin:20% 110%}
+.card .row{display:flex;justify-content:space-between;align-items:center}
+.card .cat{font-size:15px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.chip{width:52px;height:40px;border-radius:9px;background:linear-gradient(135deg,#f3e3b0,#c9a85a);opacity:.9}
+.num{font-family:Manrope;font-size:22px;letter-spacing:.22em;font-weight:600;opacity:.75}
+.c1{left:-80px;top:44px;background:linear-gradient(135deg,#2b3a67,#16213e);transform:rotate(-16deg)}
+.c2{left:-20px;top:26px;background:linear-gradient(135deg,#357abd,#4a90d9);transform:rotate(-7deg)}
+.c3{left:70px;top:16px;background:linear-gradient(135deg,#4a90d9 0%,#8b5cf6 100%);transform:rotate(3deg);box-shadow:0 36px 70px rgba(91,60,200,.45)}
+.best{background:#fff;color:#16213e;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px}
+.c3 .logo{font-family:Poppins;font-weight:700;font-size:30px;letter-spacing:-.02em}
+.c3 .logo span{color:#e9ddff}
+</style></head>
+<body>
+<div class="left">
+  <div class="brand"><div class="oc">O<span>C</span></div><b>ONECARD</b></div>
+  <h1>The right card,<br><em>every purchase.</em></h1>
+  <p>Say where you are shopping and OneCard ranks cards by reward rate to name the best one.</p>
+  <div class="ask"><div class="field"><i>Shopping at</i> Groceries</div><div class="arrow">→</div><div class="result">Best card</div></div>
+</div>
+<div class="tag">Prototype · demo data · not financial advice</div>
+<div class="wallet">
+  <div class="card c1"><div class="row"><span class="cat">Travel</span></div></div>
+  <div class="card c2"><div class="row"><span class="cat">Dining</span></div></div>
+  <div class="card c3">
+    <div class="row"><span class="logo">O<span>C</span></span><span class="best">★ Best pick</span></div>
+    <div class="chip"></div>
+    <div class="row"><span class="cat">Groceries</span><span class="num">•••• OC</span></div>
+  </div>
+</div>
+</body></html>
